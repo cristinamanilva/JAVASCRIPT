@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > h1 {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: darkblue;
+    color: white;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  > section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    > button {
+      width: 140px;
+      padding: 12px;
+      font-family:
+        "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+        Arial, sans-serif;
+      border: 1px solid rgb(0, 149, 255);
+      border-radius: 10px;
+      background-color: rgb(3, 124, 210);
+      color: white;
+    }
+
+    > span {
+      color: rgb(0, 170, 255);
+    }
+  }
+}
