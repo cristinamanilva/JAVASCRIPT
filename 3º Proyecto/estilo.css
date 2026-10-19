@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > h1 {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: darkblue;
+    color: white;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 84.2vh;
+
+  > section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    > section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      > div {
+        padding: 12px;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+        border: 1px solid rgb(0, 149, 255);
+        border-radius: 10px;
+        background-color: rgb(3, 124, 210);
+        color: white;
+      }
+
+      > article {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid rgb(0, 149, 255);
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+#resultado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px;
+}
+
+.columna-tabla {
+  background-color: rgb(0, 149, 255);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid darkblue;
+  min-width: 120px;
+}
+
+.columna-tabla h3 {
+  margin-top: 0;
+  border-bottom: 2px solid darkblue;
+  padding-bottom: 5px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: darkblue;
+  color: white;
+}
