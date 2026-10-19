@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f4f1fa;
+  font-family: "Lato", sans-serif;
+}
+
+#spinWheel {
+  --size: min(84vmin, 800px); /* tamaño de la ruleta: cámbialo aquí */
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--size) * 0.07); /* hueco para la aguja */
+  cursor: grab;
+  touch-action: none; /* evita el scroll al arrastrar con el dedo */
+  user-select: none;
+}
+
+#spinWheel.grabbing {
+  cursor: grabbing;
+}
+
+#wheel {
+  display: block;
+  width: var(--size);
+  height: var(--size);
+}
+
+/* Aguja */
+.pointer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: calc(var(--size) * 0.07);
+  height: calc(var(--size) * 0.105);
+  margin-left: calc(var(--size) * -0.035);
+  transform-origin: 50% 32%;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.5));
+}
+
+.pointer svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Centro de la ruleta */
+#spin {
+  position: absolute;
+  top: calc(var(--size) * 0.57);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2.5vmin, 1.4rem);
+  letter-spacing: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px currentColor, 0 0 10px 5px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+#spin::before {
+  content: "GIRA";
+}
+
+/* Confeti */
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Ventana de resultado */
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 900;
+}
+
+.result-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.result-card {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(0.7);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.result-overlay.open .result-card {
+  transform: scale(1);
+}
+
+.result-sub {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.result-name {
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  margin: 0.5rem 0 1.5rem;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.15);
+}
+
+.result-close {
+  padding: 0.6rem 1.8rem;
+  border: none;
+  border-radius: 999px;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.result-close:hover {
+  background: #555;
+}
+
+.result-fine {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  letter-spacing: 0.3px;
+}
